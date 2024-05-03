@@ -45,7 +45,7 @@ import {
   shouldProcessLinkClick,
 } from "./dom";
 
-import type { PrefetchBehavior, ScriptProps } from "./ssr/components";
+import type { PrefetchBehavior, ScriptsProps } from "./ssr/components";
 import {
   PrefetchPageLinks,
   RemixContext,
@@ -1110,7 +1110,7 @@ export interface NavLinkProps
   className?: string | ((props: NavLinkRenderProps) => string | undefined);
 
   /**
-    Changes the matching logic for the `active` and `pending` states to only match to the "end" of the {@link NavLink#to}. If the URL is longer, it will no longer be considered active.
+    Changes the matching logic for the `active` and `pending` states to only match to the "end" of the {@link NavLinkProps.to}. If the URL is longer, it will no longer be considered active.
 
     | Link                          | URL          | isActive |
     | ----------------------------- | ------------ | -------- |
@@ -1449,7 +1449,7 @@ export const Form = React.forwardRef<HTMLFormElement, FormProps>(
 );
 Form.displayName = "Form";
 
-export type ScrollRestorationProps = ScriptProps & {
+export type ScrollRestorationProps = ScriptsProps & {
   getKey?: GetScrollRestorationKeyFunction;
   storageKey?: string;
 };
