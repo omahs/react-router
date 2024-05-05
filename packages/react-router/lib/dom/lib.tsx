@@ -121,6 +121,9 @@ interface DOMRouterOpts {
   window?: Window;
 }
 
+/**
+ * @category Routers
+ */
 export function createBrowserRouter(
   routes: RouteObject[],
   opts?: DOMRouterOpts
@@ -140,6 +143,9 @@ export function createBrowserRouter(
   }).initialize();
 }
 
+/**
+ * @category Routers
+ */
 export function createHashRouter(
   routes: RouteObject[],
   opts?: DOMRouterOpts
@@ -611,6 +617,9 @@ function DataRoutes({
   return useRoutesImpl(routes, undefined, state, future);
 }
 
+/**
+ * @category Types
+ */
 export interface BrowserRouterProps {
   basename?: string;
   children?: React.ReactNode;
@@ -620,6 +629,8 @@ export interface BrowserRouterProps {
 
 /**
  * A `<Router>` for use in web browsers. Provides the cleanest URLs.
+ *
+ * @category Router Components
  */
 export function BrowserRouter({
   basename,
@@ -661,6 +672,9 @@ export function BrowserRouter({
   );
 }
 
+/**
+ * @category Types
+ */
 export interface HashRouterProps {
   basename?: string;
   children?: React.ReactNode;
@@ -671,6 +685,8 @@ export interface HashRouterProps {
 /**
  * A `<Router>` for use in web browsers. Stores the location in the hash
  * portion of the URL so it is not sent to the server.
+ *
+ * @category Router Components
  */
 export function HashRouter({
   basename,
@@ -712,6 +728,9 @@ export function HashRouter({
   );
 }
 
+/**
+ * @category Types
+ */
 export interface HistoryRouterProps {
   basename?: string;
   children?: React.ReactNode;
@@ -724,6 +743,8 @@ export interface HistoryRouterProps {
  * to note that using your own history object is highly discouraged and may add
  * two versions of the history library to your bundles unless you use the same
  * version of the history library that React Router uses internally.
+ *
+ * @category Router Components
  */
 function HistoryRouter({
   basename,
@@ -762,6 +783,9 @@ HistoryRouter.displayName = "unstable_HistoryRouter";
 
 export { HistoryRouter as unstable_HistoryRouter };
 
+/**
+ * @category Types
+ */
 export interface LinkProps
   extends Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, "href"> {
   /**
@@ -1071,6 +1095,9 @@ export type NavLinkRenderProps = {
   isTransitioning: boolean;
 };
 
+/**
+ * @category Types
+ */
 export interface NavLinkProps
   extends Omit<LinkProps, "className" | "style" | "children"> {
   /**
@@ -1315,6 +1342,9 @@ export interface FetcherFormProps
   onSubmit?: React.FormEventHandler<HTMLFormElement>;
 }
 
+/**
+ * @category Types
+ */
 export interface FormProps extends FetcherFormProps {
   /**
    * Indicates a specific fetcherKey to use when using `navigate={false}` so you
@@ -2428,12 +2458,9 @@ function useScrollRestoration({
 export { useScrollRestoration as UNSAFE_useScrollRestoration };
 
 /**
- * Setup a callback to be fired on the window's `beforeunload` event. This is
- * useful for saving some data to `window.localStorage` just before the page
- * refreshes.
+ * Setup a callback to be fired on the window's `beforeunload` event.
  *
- * Note: The `callback` argument should be a function created with
- * `React.useCallback()`.
+ * @category Hooks
  */
 export function useBeforeUnload(
   callback: (event: BeforeUnloadEvent) => any,

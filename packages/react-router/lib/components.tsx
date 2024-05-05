@@ -158,6 +158,9 @@ export function createMemoryRouter(
   }).initialize();
 }
 
+/**
+ * @category Types
+ */
 export interface RouterProviderProps {
   fallbackElement?: React.ReactNode;
   router: RemixRouter;
@@ -193,7 +196,7 @@ const startTransitionImpl = React[START_TRANSITION];
 /**
  * Given a Remix Router instance, render the appropriate UI
  *
- * @category Components
+ * @category Router Components
  */
 export function RouterProvider({
   fallbackElement,
@@ -307,6 +310,9 @@ function DataRoutes({
   return useRoutesImpl(routes, undefined, state, future);
 }
 
+/**
+ * @category Types
+ */
 export interface MemoryRouterProps {
   basename?: string;
   children?: React.ReactNode;
@@ -318,7 +324,7 @@ export interface MemoryRouterProps {
 /**
  * A `<Router>` that stores all entries in memory.
  *
- * @category Components
+ * @category Router Components
  */
 export function MemoryRouter({
   basename,
@@ -365,6 +371,9 @@ export function MemoryRouter({
   );
 }
 
+/**
+ * @category Types
+ */
 export interface NavigateProps {
   to: To;
   replace?: boolean;
@@ -425,6 +434,9 @@ export function Navigate({
   return null;
 }
 
+/**
+ * @category Types
+ */
 export interface OutletProps {
   /**
     Provides a context value to the element tree below the outlet. Use when the parent route needs to provide values to child routes.
@@ -460,6 +472,9 @@ export function Outlet(props: OutletProps): React.ReactElement | null {
   return useOutlet(props.context);
 }
 
+/**
+ * @category Types
+ */
 export interface PathRouteProps {
   caseSensitive?: NonIndexRouteObject["caseSensitive"];
   path?: NonIndexRouteObject["path"];
@@ -480,8 +495,14 @@ export interface PathRouteProps {
   ErrorBoundary?: React.ComponentType | null;
 }
 
+/**
+ * @category Types
+ */
 export interface LayoutRouteProps extends PathRouteProps {}
 
+/**
+ * @category Types
+ */
 export interface IndexRouteProps {
   caseSensitive?: IndexRouteObject["caseSensitive"];
   path?: IndexRouteObject["path"];
@@ -520,6 +541,9 @@ export function Route(_props: RouteProps): React.ReactElement | null {
   );
 }
 
+/**
+ * @category Types
+ */
 export interface RouterProps {
   basename?: string;
   children?: React.ReactNode;
@@ -619,6 +643,9 @@ export function Router({
   );
 }
 
+/**
+ * @category Types
+ */
 export interface RoutesProps {
   /**
    * Nested {@link Route} elements
@@ -659,6 +686,9 @@ export interface AwaitResolveRenderFunction {
   (data: Awaited<any>): React.ReactNode;
 }
 
+/**
+ * @category Types
+ */
 export interface AwaitProps {
   /**
   When using a function, the resolved value is provided as the parameter.
@@ -938,6 +968,8 @@ function ResolveAwait({
  * Creates a route config from a React "children" object, which is usually
  * either a `<Route>` element or an array of them. Used internally by
  * `<Routes>` to create a route config from its children.
+ *
+ * @category Utils
  */
 export function createRoutesFromChildren(
   children: React.ReactNode,
@@ -1010,6 +1042,8 @@ export function createRoutesFromChildren(
 
 /**
  * Renders the result of `matchRoutes()` into a React element.
+ *
+ * @category Utils
  */
 export function renderMatches(
   matches: RouteMatch[] | null
